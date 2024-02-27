@@ -154,7 +154,7 @@ class _MapScreenLocationState extends State<MapScreenLocation> {
           padding: const EdgeInsets.symmetric(horizontal: 18.0),
           child: Padding(
             padding:
-                EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.12),
+                EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.15),
             child: Container(
               height: 56,
               width: double.infinity,

@@ -1,16 +1,15 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class Login extends StatefulWidget {
+  const Login({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<Login> createState() => _LoginState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginState extends State<Login> {
   TextEditingController _textEditingController = TextEditingController();
   bool isFocused = false;
 
@@ -20,7 +19,6 @@ class _LoginPageState extends State<LoginPage> {
       body: SafeArea(
         child: ListView(
           children: [
-
             Container(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -88,7 +86,6 @@ class _LoginPageState extends State<LoginPage> {
                     padding: const EdgeInsets.only(left: 20, right: 20),
                     child: TextField(
                       decoration: InputDecoration(
-
                         hintText: "Kirish",
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(
@@ -111,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.pushNamed(context, "smsveri");
+                      Navigator.pushNamed(context, "mapScreen");
                     },
                     child: Container(
                       margin: EdgeInsets.only(left: 20, right: 20),
@@ -128,18 +125,15 @@ class _LoginPageState extends State<LoginPage> {
                             style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w500,
-                                color: Color(0xff99A0A8 )
-                            ),
+                                color: Color(0xff99A0A8)),
                           )
                         ],
                       ),
                     ),
                   ),
-
-
-
                   Padding(
-                    padding: const EdgeInsets.only(left: 16, right: 16,top: 200),
+                    padding:
+                    const EdgeInsets.only(left: 16, right: 16, top: 200),
                     child: Row(
                       children: [
                         Text(
@@ -185,8 +179,6 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
             ),
-
-
           ],
         ),
       ),

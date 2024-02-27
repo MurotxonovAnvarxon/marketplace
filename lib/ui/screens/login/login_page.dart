@@ -2,14 +2,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class SMSSucssesPage extends StatefulWidget {
-  const SMSSucssesPage({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  State<SMSSucssesPage> createState() => _SMSSucssesPageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _SMSSucssesPageState extends State<SMSSucssesPage> {
+class _LoginPageState extends State<LoginPage> {
+  TextEditingController _textEditingController = TextEditingController();
+  bool isFocused = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,70 +49,44 @@ class _SMSSucssesPageState extends State<SMSSucssesPage> {
                       ),
                     ],
                   ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                  Padding(
+                    padding: EdgeInsets.only(left: 20, top: 30),
+                    child: Text(
+                      "Kirish yoki Ro‘yxatdan o‘tish",
+                      style: GoogleFonts.montserrat(
+                          fontSize: 28, fontWeight: FontWeight.w700),
+                    ),
+                  ),
+                  Row(
                     children: [
-                      Center(
-                        child: Padding(
-                          padding: EdgeInsets.only(left: 20, top: 30),
-                          child: Text(
-                            "Tasdiqlash kodi",
-                            style: GoogleFonts.montserrat(
-                                fontSize: 28, fontWeight: FontWeight.w700),
-                          ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 20, top: 30),
+                        child: Text(
+                          "To’liq ismingizni kiriting",
+                          style: GoogleFonts.montserrat(
+                              fontSize: 14, fontWeight: FontWeight.w600),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 30),
+                        child: Text(
+                          "*",
+                          style: GoogleFonts.montserrat(
+                              fontSize: 14,
+                              color: Colors.red,
+                              fontWeight: FontWeight.w600),
                         ),
                       ),
                     ],
                   ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Center(
-                        child: Padding(
-                          padding: EdgeInsets.only(left: 20, top: 16),
-                          child: Text(
-                            "Quyidagi telefon raqamiga sms-kod yuborildi!",
-                            style: GoogleFonts.montserrat(
-                                fontSize: 12, fontWeight: FontWeight.w700,
-                              color: Colors.black
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Center(
-                        child: Padding(
-                          padding: EdgeInsets.only(left: 20, top: 16),
-                          child: Text(
-                            "+998 91 791 11 22",
-                            style: GoogleFonts.montserrat(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w700,
-                                color: Colors.black
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-
-
                   SizedBox(
                     height: 20,
                   ),
-
                   Padding(
                     padding: const EdgeInsets.only(left: 20, right: 20),
                     child: TextField(
-                      maxLength: 4,
-                      textAlign: TextAlign.center,
-                      keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
+                        hintText: "Kirish",
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(
                             Radius.circular(14),
@@ -126,96 +103,29 @@ class _SMSSucssesPageState extends State<SMSSucssesPage> {
                       ),
                     ),
                   ),
-
-
-
-                  SizedBox(height: 10,),
-                  
-
-                  Center(
-                    child: Container(
-                      margin: EdgeInsets.only(left: 20, right: 20),
-                      height: 40,
-                      width: 60,
-                      decoration: BoxDecoration(
-                          color: Colors.black26,
-                          borderRadius: BorderRadiusDirectional.circular(14)),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-
-                          Text(
-                            "00:17",
-                            style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.black
-                            ),
-                          )
-
-
-                        ],
-                      ),
-                    ),
-                  ),
-
-                  SizedBox(height: 22,),
-
-                  Center(
-                    child: Container(
-                      margin: EdgeInsets.only(left: 20, right: 20),
-                      height: 40,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadiusDirectional.circular(14)),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-
-                          Image.asset("assets/images/update.png"),
-
-                          SizedBox(width: 8,),
-
-                          Text(
-                            "Kodni qayta yuboring",
-                            style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.black
-                            ),
-                          )
-
-
-                        ],
-                      ),
-                    ),
-                  ),
-
-
-
                   SizedBox(
                     height: 20,
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.pushNamed(context, "register");
+                      Navigator.pushNamed(context, "mapScreen");
                     },
                     child: Container(
                       margin: EdgeInsets.only(left: 20, right: 20),
                       height: 50,
                       width: double.infinity,
                       decoration: BoxDecoration(
-                          color: Colors.blue,
+                          color: Colors.black12,
                           borderRadius: BorderRadiusDirectional.circular(30)),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "Tasdiqlash",
+                            "Kodni yuborish",
                             style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w500,
-                                color: Color(0xffF1F2F4)),
+                                color: Color(0xff99A0A8)),
                           )
                         ],
                       ),
@@ -223,7 +133,7 @@ class _SMSSucssesPageState extends State<SMSSucssesPage> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsets.only(left: 16, right: 16, top: 90),
+                        const EdgeInsets.only(left: 16, right: 16, top: 200),
                     child: Row(
                       children: [
                         Text(

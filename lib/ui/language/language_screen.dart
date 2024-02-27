@@ -219,7 +219,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
                         top: MediaQuery.of(context).size.height * 3 / 9),
                     child: InkWell(
                       onTap: () {
-                        Navigator.pushNamed(context, "login");
+                        Navigator.pushNamed(context, "register");
                       },
                       child: Container(
                         height: 56,
