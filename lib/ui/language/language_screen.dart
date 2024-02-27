@@ -4,7 +4,6 @@ import 'package:flutter/widgets.dart';
 import 'package:marketplace/util/app_lat_long.dart';
 import 'package:marketplace/util/location_service.dart';
 
-
 class LanguageScreen extends StatefulWidget {
   const LanguageScreen({super.key});
 
@@ -14,7 +13,6 @@ class LanguageScreen extends StatefulWidget {
 
 class _LanguageScreenState extends State<LanguageScreen> {
   AppLatLong? location;
-
 
   Future<void> _initPermission() async {
     if (!await LocationService().checkPermission()) {
@@ -33,6 +31,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
     // _moveToCurrentLocation(location.lat,location.long);
   }
 
+  bool isSelect = false;
 
   @override
   Widget build(BuildContext context) {
@@ -79,16 +78,33 @@ class _LanguageScreenState extends State<LanguageScreen> {
                         const Spacer(),
                         Padding(
                           padding: const EdgeInsets.only(right: 18.0),
-                          child: Container(
-                            height: 20,
-                            width: 20,
-                            decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.blue, width: 5),
-                                borderRadius: const BorderRadius.all(
-                                  Radius.circular(50),
-                                )),
-                          ),
+                          child:
+                              Container(
+                                height: 20,
+                                width: 20,
+                                decoration: BoxDecoration(
+                                    border:
+                                        Border.all(color: Colors.blue, width: 5),
+                                    borderRadius: const BorderRadius.all(
+                                      Radius.circular(50),
+                                    )),
+                              ),
+                          //     Checkbox(
+                          //   focusColor: Colors.blue,
+                          //   activeColor: Colors.blue,
+                          //   hoverColor: Colors.blue,
+                          //   shape: RoundedRectangleBorder(
+                          //     side: BorderSide(width: 5.0, color: Colors.blue),
+                          //     // Kenar çizgisi
+                          //     borderRadius:
+                          //         BorderRadius.circular(4.0), // Köşe yarıçapı
+                          //   ),
+                          //   value: isSelect,
+                          //   onChanged: (bool? value) {
+                          //     isSelect = !isSelect;
+                          //     setState(() {});
+                          //   },
+                          // ),
                         )
                       ],
                     ),
@@ -124,7 +140,23 @@ class _LanguageScreenState extends State<LanguageScreen> {
                                   Radius.circular(50),
                                 )),
                           ),
-                        )
+                        ),
+                        // Checkbox(
+                        //   focusColor: Colors.blue,
+                        //   activeColor: Colors.blue,
+                        //   hoverColor: Colors.blue,
+                        //   shape: RoundedRectangleBorder(
+                        //     side: BorderSide(width: 5.0, color: Colors.blue),
+                        //     // Kenar çizgisi
+                        //     borderRadius:
+                        //     BorderRadius.circular(4.0), // Köşe yarıçapı
+                        //   ),
+                        //   value: isSelect,
+                        //   onChanged: (bool? value) {
+                        //     isSelect = !isSelect;
+                        //     setState(() {});
+                        //   },
+                        // ),
                       ],
                     ),
                   ),
@@ -159,7 +191,23 @@ class _LanguageScreenState extends State<LanguageScreen> {
                                   Radius.circular(50),
                                 )),
                           ),
-                        )
+                        ),
+                        // Checkbox(
+                        //   focusColor: Colors.blue,
+                        //   activeColor: Colors.blue,
+                        //   hoverColor: Colors.blue,
+                        //   shape: RoundedRectangleBorder(
+                        //     side: BorderSide(width: 5.0, color: Colors.blue),
+                        //     // Kenar çizgisi
+                        //     borderRadius:
+                        //     BorderRadius.circular(4.0), // Köşe yarıçapı
+                        //   ),
+                        //   value: isSelect,
+                        //   onChanged: (bool? value) {
+                        //     isSelect = !isSelect;
+                        //     setState(() {});
+                        //   },
+                        // ),
                       ],
                     ),
                   ),
@@ -171,7 +219,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
                         top: MediaQuery.of(context).size.height * 3 / 9),
                     child: InkWell(
                       onTap: () {
-                       Navigator.pushNamed(context, "mapScreen");
+                        Navigator.pushNamed(context, "login");
                       },
                       child: Container(
                         height: 56,

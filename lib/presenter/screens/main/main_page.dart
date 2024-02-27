@@ -36,7 +36,7 @@ class _MainPageState extends State<MainPage> {
     }
     await SqliteService().createEnter1();
     categoryHolder = await SqliteService().getItems();
-    productHolder = await SqliteService().getProduct();
+    productHolder = (await SqliteService().getProduct()).cast<ProductModel>();
     setState(() {
       isLoading = false;
     });
@@ -190,28 +190,21 @@ class _MainPageState extends State<MainPage> {
                           if (index == productHolder.length - 1) {
                             return Padding(
                               padding: const EdgeInsets.only(right: 16.0),
-                              child: InkWell(
-                                  onTap: (){
-                                  },
-                                  child: productItem2(
-                                      productHolder[index].name ?? '',
-                                      productHolder[index].image ?? '',
-                                      productHolder[index].capacity ?? '',
-                                      productHolder[index].price.toString() ?? '',
-
-                                  )),
-                            );
-                          } else {
-                            return InkWell(
-                                onTap: (){
-                                },
-                                child: productItem2(
+                              child: productItem2(
                                   productHolder[index].name ?? '',
                                   productHolder[index].image ?? '',
                                   productHolder[index].capacity ?? '',
                                   productHolder[index].price.toString() ?? '',
+                              ),
+                            );
+                          } else {
+                            return productItem2(
+                              productHolder[index].name ?? '',
+                              productHolder[index].image ?? '',
+                              productHolder[index].capacity ?? '',
+                              productHolder[index].price.toString() ?? '',
 
-                                ));
+                            );
                           }
                         },
                       ),

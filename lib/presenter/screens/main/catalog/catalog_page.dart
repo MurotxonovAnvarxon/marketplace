@@ -37,7 +37,7 @@ class _CatalogPageState extends State<CatalogPage> {
     }
     await SqliteService().createEnter1();
     categoryHolder = await SqliteService().getItems();
-    catalogItems = await SqliteService().getCatalogItems();
+    catalogItems = (await SqliteService().getCatalogItems()).cast<CatalogItemModel>();
     setState(() {
       isLoading = false;
     });

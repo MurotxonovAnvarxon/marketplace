@@ -19,7 +19,6 @@ class _RegisterPageState extends State<RegisterPage> {
       body: SafeArea(
         child: ListView(
           children: [
-
             Container(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -88,7 +87,6 @@ class _RegisterPageState extends State<RegisterPage> {
                     child: TextField(
                       keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
-
                         hintText: "+998",
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(
@@ -109,32 +107,34 @@ class _RegisterPageState extends State<RegisterPage> {
                   SizedBox(
                     height: 20,
                   ),
-                  Container(
-                    margin: EdgeInsets.only(left: 20, right: 20),
-                    height: 50,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                        color: Colors.black12,
-                        borderRadius: BorderRadiusDirectional.circular(30)),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Kodni yuborish",
-                          style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                              color: Color(0xffF1F2F4)
-                          ),
-                        )
-                      ],
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, "mapScreen");
+                    },
+                    child: Container(
+                      margin: EdgeInsets.only(left: 20, right: 20),
+                      height: 50,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          color: Colors.black12,
+                          borderRadius: BorderRadiusDirectional.circular(30)),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Kodni yuborish",
+                            style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                                color: Color(0xffF1F2F4)),
+                          )
+                        ],
+                      ),
                     ),
                   ),
-
-
-
                   Padding(
-                    padding: const EdgeInsets.only(left: 16, right: 16,top: 200),
+                    padding:
+                        const EdgeInsets.only(left: 16, right: 16, top: 200),
                     child: Row(
                       children: [
                         Text(
@@ -180,8 +180,6 @@ class _RegisterPageState extends State<RegisterPage> {
                 ],
               ),
             ),
-
-
           ],
         ),
       ),

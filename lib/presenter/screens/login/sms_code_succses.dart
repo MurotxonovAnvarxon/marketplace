@@ -172,7 +172,7 @@ class _SMSSucssesPageState extends State<SMSSucssesPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
 
-                          Image.asset("assets/update.png"),
+                          Image.asset("assets/images/update.png"),
 
                           SizedBox(width: 8,),
 
@@ -196,24 +196,29 @@ class _SMSSucssesPageState extends State<SMSSucssesPage> {
                   SizedBox(
                     height: 20,
                   ),
-                  Container(
-                    margin: EdgeInsets.only(left: 20, right: 20),
-                    height: 50,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                        color: Colors.blue,
-                        borderRadius: BorderRadiusDirectional.circular(30)),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Tasdiqlash",
-                          style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                              color: Color(0xffF1F2F4)),
-                        )
-                      ],
+                  InkWell(
+                    onTap: (){
+                      Navigator.pushNamed(context, "register");
+                    },
+                    child: Container(
+                      margin: EdgeInsets.only(left: 20, right: 20),
+                      height: 50,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadiusDirectional.circular(30)),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Tasdiqlash",
+                            style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                                color: Color(0xffF1F2F4)),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                   Padding(

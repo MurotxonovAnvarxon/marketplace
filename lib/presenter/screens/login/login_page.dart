@@ -109,25 +109,30 @@ class _LoginPageState extends State<LoginPage> {
                   SizedBox(
                     height: 20,
                   ),
-                  Container(
-                    margin: EdgeInsets.only(left: 20, right: 20),
-                    height: 50,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                        color: Colors.black12,
-                        borderRadius: BorderRadiusDirectional.circular(30)),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Kodni yuborish",
-                          style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                              color: Color(0xff99A0A8 )
-                          ),
-                        )
-                      ],
+                  InkWell(
+                    onTap: (){
+                      Navigator.pushNamed(context, "smsveri");
+                    },
+                    child: Container(
+                      margin: EdgeInsets.only(left: 20, right: 20),
+                      height: 50,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          color: Colors.black12,
+                          borderRadius: BorderRadiusDirectional.circular(30)),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Kodni yuborish",
+                            style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                                color: Color(0xff99A0A8 )
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
 

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 Widget InputText(String label, TextInputType type,
     TextEditingController controller, int length, void Function(String)? onChanged) {
@@ -116,8 +117,8 @@ Widget productItem2(String name, String img, String value, String price) {
   return Padding(
     padding: const EdgeInsets.only(left: 16, top: 8),
     child: Container(
-      width: 140,
-      height: 293,
+      width: 160,
+      height: 353,
       decoration: BoxDecoration(
         color: Color(0xFFF5F5F5),
         borderRadius: BorderRadius.circular(10),
@@ -126,29 +127,39 @@ Widget productItem2(String name, String img, String value, String price) {
         children: [
           Stack(
             children :[
-             Container(
-              width: 140,
-              height: 160,
-              child: Align(
-              alignment: Alignment.center,
-              child: Container(
-                  height: 140,
-                  width: 120,
-                  decoration:BoxDecoration(
-                    color:Color(0xFFFFFFFF),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Image.asset(img, height: 80,),
+             Align(
+               alignment: Alignment.center,
+               child: Padding(
+                 padding: const EdgeInsets.only(top: 8.0),
+                 child: Container(
+                  width: 140,
+                  height: 130,
+                  child: Align(
+                  alignment: Alignment.center,
+                  child: Container(
+                      height: 140,
+                      width: 120,
+                      decoration:BoxDecoration(
+                        color:Color(0xFFFFFFFF),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+
+                        child: Image.asset(img, height: 80,),
+                      )
                   )
-              )
-          )),
+                           )),
+               ),
+             ),
               const Padding(
                 padding: EdgeInsets.all(15.0),
                 child: Align(
-                    alignment: Alignment.topRight,
-                    child: Icon(Icons.favorite_outline_rounded,)),
+                    alignment: Alignment.topCenter,
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 78.0),
+                      child: Icon(Icons.favorite_outline_rounded,),
+                    )),
               )
       ]
           ),
