@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:marketplace/ui/screens/main/main_page.dart';
 
 class LocationDetailScreen extends StatefulWidget {
   const LocationDetailScreen({super.key});
@@ -10,6 +11,7 @@ class LocationDetailScreen extends StatefulWidget {
 }
 
 class _LocationDetailScreenState extends State<LocationDetailScreen> {
+  TextEditingController controller=TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,10 +81,14 @@ class _LocationDetailScreenState extends State<LocationDetailScreen> {
                 ],
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(left: 20.0, right: 20),
+             Padding(
+              padding: const EdgeInsets.only(left: 20.0, right: 20),
               child: TextField(
-                decoration: InputDecoration(
+                controller: controller,
+                onChanged: (text){
+                  controller.text=text;
+                },
+                decoration: const InputDecoration(
                     hintText: "Kiriting",
                     hintStyle: TextStyle(color: Colors.grey),
                     border: OutlineInputBorder()),
@@ -261,7 +267,13 @@ class _LocationDetailScreenState extends State<LocationDetailScreen> {
                 padding: EdgeInsets.only(top: 80),
                 child: InkWell(
                   onTap: (){
-                    Navigator.pushNamed(context, "main");
+                    // Navigator.pushNamed(context, "main");
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MainPage(street:controller.text ,),
+                      ),
+                    );
                   },
                   child: Container(
                     height: 56,
