@@ -48,6 +48,7 @@ dependencies:
   geocoding: ^2.2.0
   google_fonts: ^6.1.0
   roundcheckbox: ^2.0.5
+  flutter_svg: ^2.0.10+1
 
 
 
