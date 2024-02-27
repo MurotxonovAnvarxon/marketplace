@@ -6,6 +6,8 @@ import 'package:marketplace/presenter/screens/login/register_page.dart';
 import 'package:marketplace/presenter/screens/login/sms_code_succses.dart';
 import 'package:marketplace/presenter/screens/main/catalog/catalog_page.dart';
 import 'package:marketplace/presenter/screens/main/main_page.dart';
+import 'package:marketplace/presenter/screens/settings/settings_page.dart';
+import 'package:marketplace/presenter/screens/splash/splash_page.dart';
 import 'package:marketplace/ui/language/language_screen.dart';
 import 'package:marketplace/ui/location_detail_screen/location_detail_screen.dart';
 import 'package:marketplace/ui/map/map_screen_location.dart';
@@ -34,8 +36,9 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       // home: LanguageScreen(),
-      initialRoute: "languageScreen",
+      initialRoute: "splash",
       routes: {
+        "splash":(context)=>SplashPage(),
         "languageScreen": (context) => const LanguageScreen(),
         "mapScreen":(context)=>const MapScreenLocation(),
         "mapdetailScreen":(context)=>LocationDetailScreen(),
@@ -43,7 +46,8 @@ class MyApp extends StatelessWidget {
         "catalog":(context)=> CatalogPage(),
         "login":(context)=>LoginPage(),
         "smsveri":(context)=>SMSSucssesPage(),
-        "register":(context)=>RegisterPage()
+        "register":(context)=>RegisterPage(),
+        "settings":(context)=>SettingsPage(),
 
       },
     );

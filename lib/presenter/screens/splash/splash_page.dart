@@ -10,12 +10,23 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
-  
+  Future<void> fetchUserOrder() async {
+    Future.delayed(const Duration(seconds: 3), () {
+      Navigator.pushReplacementNamed(context, "languageScreen");
+    });
+  }
+
+  @override
+  void initState() {
+    fetchUserOrder();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: SvgPicture.asset('assets/splashlogo.svg'),
+        child: SvgPicture.asset('assets/images/splashlogo.svg'),
       ),
     );
   }
