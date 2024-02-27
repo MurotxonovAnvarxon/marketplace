@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,8 +10,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  TextEditingController _textEditingController = TextEditingController();
+  TextEditingController controler = TextEditingController();
   bool isFocused = false;
+  String name = "Kodni yuborish";
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,6 @@ class _LoginPageState extends State<LoginPage> {
       body: SafeArea(
         child: ListView(
           children: [
-
             Container(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -87,8 +86,8 @@ class _LoginPageState extends State<LoginPage> {
                   Padding(
                     padding: const EdgeInsets.only(left: 20, right: 20),
                     child: TextField(
+                      controller: controler,
                       decoration: InputDecoration(
-
                         hintText: "Kirish",
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(
@@ -104,6 +103,9 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                       ),
+                      onChanged: (satr) {
+                        setState(() {});
+                      },
                     ),
                   ),
                   SizedBox(
@@ -114,27 +116,30 @@ class _LoginPageState extends State<LoginPage> {
                     height: 50,
                     width: double.infinity,
                     decoration: BoxDecoration(
-                        color: Colors.black12,
+                        color: controler.text.length >= 15
+                            ? Colors.blue
+                            : Colors.black12,
                         borderRadius: BorderRadiusDirectional.circular(30)),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "Kodni yuborish",
+                          controler.text.length >= 15
+                              ? "Davom etish"
+                              : "Kodni yuborish",
                           style: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w500,
-                              color: Color(0xff99A0A8 )
-                          ),
+                              color: controler.text.length >= 15
+                                  ? Colors.white
+                                  : Color(0xff99A0A8)),
                         )
                       ],
                     ),
                   ),
-
-
-
                   Padding(
-                    padding: const EdgeInsets.only(left: 16, right: 16,top: 200),
+                    padding:
+                        const EdgeInsets.only(left: 16, right: 16, top: 200),
                     child: Row(
                       children: [
                         Text(
@@ -180,8 +185,6 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
             ),
-
-
           ],
         ),
       ),

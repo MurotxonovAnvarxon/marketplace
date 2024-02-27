@@ -3,13 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SMSSucssesPage extends StatefulWidget {
-  const SMSSucssesPage({super.key});
+
+
+  String phoneNumber;
+
+  SMSSucssesPage(this.phoneNumber);
 
   @override
   State<SMSSucssesPage> createState() => _SMSSucssesPageState();
 }
 
 class _SMSSucssesPageState extends State<SMSSucssesPage> {
+
+  TextEditingController controler  = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,7 +78,7 @@ class _SMSSucssesPageState extends State<SMSSucssesPage> {
                             "Quyidagi telefon raqamiga sms-kod yuborildi!",
                             style: GoogleFonts.montserrat(
                                 fontSize: 12, fontWeight: FontWeight.w700,
-                              color: Colors.black
+                                color: Colors.black
                             ),
                           ),
                         ),
@@ -86,7 +93,7 @@ class _SMSSucssesPageState extends State<SMSSucssesPage> {
                         child: Padding(
                           padding: EdgeInsets.only(left: 20, top: 16),
                           child: Text(
-                            "+998 91 791 11 22",
+                            widget.phoneNumber,
                             style: GoogleFonts.montserrat(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w700,
@@ -106,6 +113,7 @@ class _SMSSucssesPageState extends State<SMSSucssesPage> {
                   Padding(
                     padding: const EdgeInsets.only(left: 20, right: 20),
                     child: TextField(
+                      controller: controler,
                       maxLength: 4,
                       textAlign: TextAlign.center,
                       keyboardType: TextInputType.phone,
@@ -124,13 +132,16 @@ class _SMSSucssesPageState extends State<SMSSucssesPage> {
                           ),
                         ),
                       ),
+                      onChanged: (satr){
+                        setState(() {});
+                      },
                     ),
                   ),
 
 
 
                   SizedBox(height: 10,),
-                  
+
 
                   Center(
                     child: Container(
@@ -172,7 +183,7 @@ class _SMSSucssesPageState extends State<SMSSucssesPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
 
-                          Image.asset("assets/update.png"),
+                          Image.asset("assets/images/update.png"),
 
                           SizedBox(width: 8,),
 
@@ -201,7 +212,7 @@ class _SMSSucssesPageState extends State<SMSSucssesPage> {
                     height: 50,
                     width: double.infinity,
                     decoration: BoxDecoration(
-                        color: Colors.blue,
+                        color: controler.text.length == 4 ? Colors.blue: Colors.black12,
                         borderRadius: BorderRadiusDirectional.circular(30)),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -218,7 +229,7 @@ class _SMSSucssesPageState extends State<SMSSucssesPage> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsets.only(left: 16, right: 16, top: 90),
+                    const EdgeInsets.only(left: 16, right: 16, top: 90),
                     child: Row(
                       children: [
                         Text(

@@ -10,7 +10,7 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  TextEditingController _textEditingController = TextEditingController();
+  TextEditingController controler = TextEditingController();
   bool isFocused = false;
 
   @override
@@ -19,7 +19,6 @@ class _RegisterPageState extends State<RegisterPage> {
       body: SafeArea(
         child: ListView(
           children: [
-
             Container(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -86,9 +85,10 @@ class _RegisterPageState extends State<RegisterPage> {
                   Padding(
                     padding: const EdgeInsets.only(left: 20, right: 20),
                     child: TextField(
+                      controller: controler,
+                      maxLength: 13,
                       keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
-
                         hintText: "+998",
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(
@@ -104,6 +104,9 @@ class _RegisterPageState extends State<RegisterPage> {
                           ),
                         ),
                       ),
+                      onChanged: (satr) {
+                        setState(() {});
+                      },
                     ),
                   ),
                   SizedBox(
@@ -114,7 +117,9 @@ class _RegisterPageState extends State<RegisterPage> {
                     height: 50,
                     width: double.infinity,
                     decoration: BoxDecoration(
-                        color: Colors.black12,
+                        color: controler.text.length == 13
+                            ? Colors.blue
+                            : Color(0xff99A0A8),
                         borderRadius: BorderRadiusDirectional.circular(30)),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -124,17 +129,14 @@ class _RegisterPageState extends State<RegisterPage> {
                           style: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w500,
-                              color: Color(0xffF1F2F4)
-                          ),
+                              color: Color(0xffF1F2F4)),
                         )
                       ],
                     ),
                   ),
-
-
-
                   Padding(
-                    padding: const EdgeInsets.only(left: 16, right: 16,top: 200),
+                    padding:
+                        const EdgeInsets.only(left: 16, right: 16, top: 200),
                     child: Row(
                       children: [
                         Text(
@@ -180,8 +182,6 @@ class _RegisterPageState extends State<RegisterPage> {
                 ],
               ),
             ),
-
-
           ],
         ),
       ),
