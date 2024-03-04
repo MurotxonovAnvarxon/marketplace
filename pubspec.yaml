@@ -49,6 +49,12 @@ dependencies:
   google_fonts: ^6.1.0
   roundcheckbox: ^2.0.5
   flutter_svg: ^2.0.10+1
+  retrofit: ^4.1.0
+  freezed: ^2.4.7
+  get_it: ^7.6.7
+  freezed_annotation: ^2.4.1
+  json_annotation: ^4.8.1
+
 
 
 
@@ -57,13 +63,16 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^3.0.0
+  build_runner: ^2.4.8
+  json_serializable: ^6.7.1
+  retrofit_generator: '>=7.0.0 <8.0.0'
+
 
 #  easy_localization: ^3.0.3
 

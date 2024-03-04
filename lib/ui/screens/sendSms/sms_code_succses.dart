@@ -1,39 +1,30 @@
-import 'dart:ffi';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:marketplace/data/request/login/loginRequest.dart';
-import 'package:marketplace/ui/screens/login/bloc/login_bloc.dart';
+import 'package:marketplace/ui/screens/sendSms/bloc/send_code_bloc.dart';
 
-class LoginPage extends StatefulWidget {
-  String? phoneNumber;
-
-  LoginPage({super.key, this.phoneNumber});
+class SMSSuccessPage extends StatefulWidget {
+  const SMSSuccessPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState(phoneNumber);
+  State<SMSSuccessPage> createState() => _SMSSuccessPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
-  String? phoneNumber;
+class _SMSSuccessPageState extends State<SMSSuccessPage> {
+  TextEditingController controler = TextEditingController();
 
-  _LoginPageState(this.phoneNumber);
-
-  final bloc = LoginBloc();
+  final bloc = SendCodeBloc();
 
   @override
   void initState() {
     super.initState();
   }
 
-  TextEditingController controller = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider.value(
       value: bloc,
-      child: BlocConsumer<LoginBloc, LoginScreenState>(
+      child: BlocConsumer<SendCodeBloc, SendCodeState>(
         listener: (context, state) {},
         builder: (context, state) {
           return Scaffold(
@@ -51,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
                               color: Color(0xff636C79)),
-                          child: const Center(
+                          child: Center(
                               child: Icon(Icons.keyboard_arrow_left_outlined,
                                   color: Colors.white)),
                         ),
@@ -70,52 +61,32 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ],
                         ),
-                        const Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                        const Padding(
+                          padding: EdgeInsets.only(left: 20, top: 30),
+                          child: Text(
+                            "Kirish yoki Ro‘yxatdan o‘tish",
+                            style: TextStyle(
+                                fontSize: 28, fontWeight: FontWeight.w700),
+                          ),
+                        ),
+                        const Row(
                           children: [
-                            Center(
-                              child: Padding(
-                                padding: EdgeInsets.only(left: 20, top: 30),
-                                child: Text(
-                                  "Tasdiqlash kodi",
-                                  style: TextStyle(
-                                      fontSize: 28,
-                                      fontWeight: FontWeight.w700),
-                                ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 20, top: 30),
+                              child: Text(
+                                "Telefon raqamingizni kiriting",
+                                style: TextStyle(
+                                    fontSize: 14, fontWeight: FontWeight.w600),
                               ),
                             ),
-                          ],
-                        ),
-                        const Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Center(
-                              child: Padding(
-                                padding: EdgeInsets.only(left: 20, top: 16),
-                                child: Text(
-                                  "Quyidagi telefon raqamiga sms-kod yuborildi!",
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w700,
-                                      color: Colors.black),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Center(
-                              child: Padding(
-                                padding: EdgeInsets.only(left: 20, top: 16),
-                                child: Text(
-                                  widget.phoneNumber ?? "998907322702",
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w700,
-                                      color: Colors.black),
-                                ),
+                            Padding(
+                              padding: EdgeInsets.only(top: 30),
+                              child: Text(
+                                "*",
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.red,
+                                    fontWeight: FontWeight.w600),
                               ),
                             ),
                           ],
@@ -126,11 +97,11 @@ class _LoginPageState extends State<LoginPage> {
                         Padding(
                           padding: const EdgeInsets.only(left: 20, right: 20),
                           child: TextField(
-                            controller: controller,
-                            maxLength: 4,
-                            textAlign: TextAlign.center,
+                            controller: controler,
+                            maxLength: 9,
                             keyboardType: TextInputType.phone,
                             decoration: const InputDecoration(
+                              prefix: Text("+998"),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.all(
                                   Radius.circular(14),
@@ -151,68 +122,13 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                         SizedBox(
-                          height: 10,
-                        ),
-                        Center(
-                          child: Container(
-                            margin: EdgeInsets.only(left: 20, right: 20),
-                            height: 40,
-                            width: 60,
-                            decoration: BoxDecoration(
-                                color: Colors.black26,
-                                borderRadius:
-                                    BorderRadiusDirectional.circular(14)),
-                            child: const Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  "00:17",
-                                  style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500,
-                                      color: Colors.black),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 22,
-                        ),
-                        Center(
-                          child: Container(
-                            margin: EdgeInsets.only(left: 20, right: 20),
-                            height: 40,
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                                borderRadius:
-                                    BorderRadiusDirectional.circular(14)),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Image.asset("assets/images/update.png"),
-                                SizedBox(
-                                  width: 8,
-                                ),
-                                Text(
-                                  "Kodni qayta yuboring",
-                                  style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500,
-                                      color: Colors.black),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                        SizedBox(
                           height: 20,
                         ),
                         InkWell(
                           onTap: () {
-                            if (controller.text.length == 4) {
-                              bloc.add(LoginUser(LoginRequest(controller.text,
-                                  widget.phoneNumber.toString(), "")));
+                            if (controler.text.length == 9) {
+                              bloc.add(SendCodeEvent(controler.text));
+                              Navigator.pushNamed(context, "mapScreen");
                             }
                           },
                           child: Container(
@@ -220,16 +136,16 @@ class _LoginPageState extends State<LoginPage> {
                             height: 50,
                             width: double.infinity,
                             decoration: BoxDecoration(
-                                color: controller.text.length == 4
+                                color: controler.text.length == 9
                                     ? Colors.blue
-                                    : Colors.black12,
+                                    : Color(0xff99A0A8),
                                 borderRadius:
                                     BorderRadiusDirectional.circular(30)),
-                            child: Row(
+                            child: const Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  "Tasdiqlash",
+                                  "Kodni yuborish",
                                   style: TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w500,
@@ -239,9 +155,9 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              left: 16, right: 16, top: 90),
+                        const Padding(
+                          padding:
+                              EdgeInsets.only(left: 16, right: 16, top: 200),
                           child: Row(
                             children: [
                               Text(

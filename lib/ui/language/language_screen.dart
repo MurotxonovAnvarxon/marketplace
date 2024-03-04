@@ -28,7 +28,6 @@ class _LanguageScreenState extends State<LanguageScreen> {
     } catch (_) {
       location = defLocation;
     }
-    // _moveToCurrentLocation(location.lat,location.long);
   }
 
   bool isSelect = false;
@@ -78,33 +77,16 @@ class _LanguageScreenState extends State<LanguageScreen> {
                         const Spacer(),
                         Padding(
                           padding: const EdgeInsets.only(right: 18.0),
-                          child:
-                              Container(
-                                height: 20,
-                                width: 20,
-                                decoration: BoxDecoration(
-                                    border:
-                                        Border.all(color: Colors.blue, width: 5),
-                                    borderRadius: const BorderRadius.all(
-                                      Radius.circular(50),
-                                    )),
-                              ),
-                          //     Checkbox(
-                          //   focusColor: Colors.blue,
-                          //   activeColor: Colors.blue,
-                          //   hoverColor: Colors.blue,
-                          //   shape: RoundedRectangleBorder(
-                          //     side: BorderSide(width: 5.0, color: Colors.blue),
-                          //     // Kenar çizgisi
-                          //     borderRadius:
-                          //         BorderRadius.circular(4.0), // Köşe yarıçapı
-                          //   ),
-                          //   value: isSelect,
-                          //   onChanged: (bool? value) {
-                          //     isSelect = !isSelect;
-                          //     setState(() {});
-                          //   },
-                          // ),
+                          child: Container(
+                            height: 20,
+                            width: 20,
+                            decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.blue, width: 5),
+                                borderRadius: const BorderRadius.all(
+                                  Radius.circular(50),
+                                )),
+                          ),
                         )
                       ],
                     ),
@@ -141,22 +123,6 @@ class _LanguageScreenState extends State<LanguageScreen> {
                                 )),
                           ),
                         ),
-                        // Checkbox(
-                        //   focusColor: Colors.blue,
-                        //   activeColor: Colors.blue,
-                        //   hoverColor: Colors.blue,
-                        //   shape: RoundedRectangleBorder(
-                        //     side: BorderSide(width: 5.0, color: Colors.blue),
-                        //     // Kenar çizgisi
-                        //     borderRadius:
-                        //     BorderRadius.circular(4.0), // Köşe yarıçapı
-                        //   ),
-                        //   value: isSelect,
-                        //   onChanged: (bool? value) {
-                        //     isSelect = !isSelect;
-                        //     setState(() {});
-                        //   },
-                        // ),
                       ],
                     ),
                   ),
@@ -192,22 +158,6 @@ class _LanguageScreenState extends State<LanguageScreen> {
                                 )),
                           ),
                         ),
-                        // Checkbox(
-                        //   focusColor: Colors.blue,
-                        //   activeColor: Colors.blue,
-                        //   hoverColor: Colors.blue,
-                        //   shape: RoundedRectangleBorder(
-                        //     side: BorderSide(width: 5.0, color: Colors.blue),
-                        //     // Kenar çizgisi
-                        //     borderRadius:
-                        //     BorderRadius.circular(4.0), // Köşe yarıçapı
-                        //   ),
-                        //   value: isSelect,
-                        //   onChanged: (bool? value) {
-                        //     isSelect = !isSelect;
-                        //     setState(() {});
-                        //   },
-                        // ),
                       ],
                     ),
                   ),
